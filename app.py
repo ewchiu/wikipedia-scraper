@@ -3,6 +3,10 @@ import wikipedia as wk
 
 app = Flask(__name__)
 
+# Wikipedia scraper by Eric Chiu
+# If wiki search results in an exception being raised,
+# null will be returned in the JSON object
+
 @app.route("/wiki")
 def scraper():
     search_term = request.args.get("search")
