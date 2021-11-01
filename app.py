@@ -12,14 +12,14 @@ def scraper():
     search_term = request.args.get("search")
 
     try: 
-        wk.summary(search_term)
+        summary = wk.summary(search_term, sentences=2)
     except:
         response = {'info': None}
-        return jsonify(response)
     else:
-        summary = wk.summary(search_term, sentences=2)
         response = {'info': summary}
-        return jsonify(response)
+
+    return jsonify(response)
+    
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
